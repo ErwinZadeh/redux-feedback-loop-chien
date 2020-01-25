@@ -8,7 +8,7 @@ import Comments from '../Comments/Comments.js'
 import FeedbackReview from '../FeedbackReview/FeedbackReview.js'
 import FeedbackSubmit from '../FeedbackSubmit/FeedbackSubmit.js'
 
-import { HashRouter as Router, Link, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   render() {
@@ -18,28 +18,6 @@ class App extends Component {
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
         </header>
-        <footer className="App-footer">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/Understanding">Understanding</Link>
-            </li>
-            <li>
-              <Link to="/Supported">Supported</Link>
-            </li>
-            <li>
-              <Link to="/Comments">Comments</Link>
-            </li>
-            <li>
-              <Link to="/FeedbackReview">FeedbackReview</Link>
-            </li>
-            <li>
-              <Link to="/FeedbackSubmit">FeedbackSubmit</Link>
-            </li>
-          </ul>
-        </footer>
         <div className="App">
           <Route path="/" component={Home} exact />
           <Route path="/Understanding" component={Understanding} />
