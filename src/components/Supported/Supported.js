@@ -3,16 +3,16 @@ import React, { Component } from 'react';
 class Supported extends Component {
 
   handleClick = () => {
-    alert('you are headed to feedback review before submiting!')
+    // alert('you are headed to leave comments');
     ///CHANGE LOCATION???
-    this.props.history.push('/FeedbackReview')
+    this.props.history.push('/Comments')
   }
 
   render() {
     return (
       <div>
-        <h1>Supported</h1>
-        <button onClick={this.handleClick}>Next to Review your Feedback Page</button>
+        <h1>How well are you being Supported?</h1>
+        <button onClick={this.handleClick}>NEXT</button>
       </div>
     )
   }

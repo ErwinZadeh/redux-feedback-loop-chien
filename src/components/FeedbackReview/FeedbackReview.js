@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-class FeedBackReview extends Component {
+class FeedbackReview extends Component {
 
   handleClick = () => {
-    alert('you are submitting this form');
+    // alert('you are submitting this form');
     //Change Location"
     this.props.history.push('/FeedbackSubmit')
   }
@@ -11,11 +11,11 @@ class FeedBackReview extends Component {
   render() {
     return (
       <div>
-        <h1>Feedback Review</h1>
+        <h1>Review Your Feedback</h1>
         <button onClick={this.handleClick}>SUBMIT</button>
       </div>
     )
   }
 }
 
-export default FeedBackReview;
+export default FeedbackReview;

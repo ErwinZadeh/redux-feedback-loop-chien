@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Home extends Component {
 
   handleClick = () => {
-    alert("You are headed to understanding");
+    // alert("You are headed to understanding");
     ///CHANGE LOCATION???
     this.props.history.push('/Understanding')
   }
@@ -11,8 +11,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1>HOME</h1>
-        <button onClick={this.handleClick}>Next Question about Understanding</button>
+        <h1>How are you feeling today?</h1>
+        <button onClick={this.handleClick}>NEXT</button>
       </div>
     )
   }
