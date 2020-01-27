@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Comments extends Component {
 
@@ -7,12 +8,12 @@ class Comments extends Component {
   };
 
   handleCommentsChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     this.setState({
       comments: event.target.value
     },
-  );
-}
+    );
+  }
 
   // makeFeedback = () => {
   //   console.log(this.state.feedback, this.props.reduxState);
@@ -29,7 +30,7 @@ class Comments extends Component {
   //   this.dispatchFeedback()
   // }
 
-  handleClick = () => {
+  handleCommentsClick = () => {
     // alert('you are headed to feedback review before submiting!');
     ///CHANGE LOCATION???
     this.props.history.push('/FeedbackReview')
@@ -41,10 +42,19 @@ class Comments extends Component {
       <div>
         <h1>Any comments you want to leave?</h1>
         <input onChange={this.handleCommentsChange} type="text" placeholder="Write your comment" />
-        <button onClick={this.handleClick}>NEXT</button>
+        <button onClick={this.handleCommentsClick}>NEXT</button>
       </div>
     )
   }
 }
 
-export default Comments;
+const putReduxStateOnProps = (reduxState) => {
+  return {
+    reduxState
+  }
+}
+
+export default connect(putReduxStateOnProps)(Comments);
+
+
+// export default Comments;

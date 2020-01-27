@@ -9,7 +9,7 @@ import FeedbackReview from '../FeedbackReview/FeedbackReview.js'
 import FeedbackSubmit from '../FeedbackSubmit/FeedbackSubmit.js'
 
 import { HashRouter as Router, Route } from "react-router-dom";
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
@@ -32,5 +32,16 @@ class App extends Component {
   }
 }
 
-export default App;
-// export default connect()(App);
+const putReduxStateOnProps = (reduxState) => {
+  //this will make this.props.reduxState a thing
+  return {
+    reduxState
+  }
+}
+
+//this gives us secret props!
+export default connect(putReduxStateOnProps)(App);
+
+
+// export default App;
+

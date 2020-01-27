@@ -6,17 +6,18 @@ class Support extends Component {
   state = {
     support: 0,
   };
-  
+
   handleSupportChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     this.setState({
       support: event.target.value
     },
-  );
-}
-  
-  handleClick = () => {
-    // alert('you are headed to leave comments');
+    );
+  }
+
+  handleSupportClick = () => {
+    console.log(this.state)
+    // alert("You are headed to supported");
     ///CHANGE LOCATION???
     this.props.history.push('/Comments')
     this.props.dispatch({ type: 'ADD_SUPPORT', payload: this.state.support })
@@ -26,11 +27,20 @@ class Support extends Component {
     return (
       <div>
         <h1>How well are you being Supported?</h1>
-        <input onChange={this.handleSupportedChange} type="number" placeholder="Choose between 1 to 5" />
-        <button onClick={this.handleClick}>NEXT</button>
+        <input onChange={this.handleSupportChange} type="number" placeholder="Choose between 1 to 5" />
+        <button onClick={this.handleSupportClick}>NEXT</button>
       </div>
     )
   }
 }
 
-export default Support;
+const putReduxStateOnProps = (reduxState) => {
+  return {
+    reduxState
+  }
+}
+
+export default connect(putReduxStateOnProps)(Support);
+
+
+// export default Support;
