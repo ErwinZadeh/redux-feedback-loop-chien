@@ -12,6 +12,7 @@ class Comments extends Component {
     return (
       <div>
         <h1>Any comments you want to leave?</h1>
+        <input onChange={this.handleFeelingChange} type="text" placeholder="Write your comment" />
         <button onClick={this.handleClick}>NEXT</button>
       </div>
     )
