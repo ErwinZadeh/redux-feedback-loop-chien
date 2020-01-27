@@ -9,6 +9,7 @@ import FeedbackReview from '../FeedbackReview/FeedbackReview.js'
 import FeedbackSubmit from '../FeedbackSubmit/FeedbackSubmit.js'
 
 import { HashRouter as Router, Route } from "react-router-dom";
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
