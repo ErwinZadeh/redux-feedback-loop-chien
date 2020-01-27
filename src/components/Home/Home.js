@@ -22,32 +22,21 @@ class Home extends Component {
     });
   }
 
-  // makeFeedback = () => {
-  //   console.log(this.state.feedback, this.props.reduxState);
-  //   this.setState({
-  //       feedback: {
-  //           ...this.state.feedback,
-  //           feeling: this.props.reduxState.Feeling,
-  //           understanding: this.props.reduxState.Understanding,
-  //           support: this.props.reduxState.Support,
-  //           comments: this.props.reduxState.Comments
-  //       }
-  //   })
-  //   console.log(this.state.feedback);        
-  //   this.dispatchFeedback()
-  // }
-
   handleClick = () => {
-    // console.log(this.props.feeling);
-    //     this.props.dispatch({
-    //         type: 'ADD_FEELING',
-    //         payload: this.props.feeling
-    //     })
     console.log(this.state)
-    alert("You are headed to understanding");
+    // alert("You are headed to understanding");
     //CHANGE LOCATION???
     this.props.history.push('/Understanding')
   }
+
+  // addFeeling = () => {
+  //   console.log(this.props.feeling);
+    
+  //       this.props.dispatch({
+  //           type: 'ADD_FEELING',
+  //           payload: this.props.feeling
+  //       })
+  // }
 
   render() {
     return (
@@ -55,18 +44,27 @@ class Home extends Component {
         <h1>How are you feeling today?</h1>
         <input onChange={this.handleFeelingChange} type="number" placeholder="Choose between 1 to 5" />
         <button onClick={this.handleClick}>NEXT</button>
+        {/* <button onClick={() => this.props.dispatch(
+          {
+            type: 'ADD_FEELING',
+            payload: this.state.feeling
+          }
+        )
+        }
+        >
+          NEXT
+        </button> */}
       </div>
     )
   }
 }
 
-// const putReduxStateOnProps = (reduxState) => {
-//   //this will make this.props.reduxState a thing
-//   return {
-//     reduxState
-//   }
-// }
+const putReduxStateOnProps = (reduxState) => {
+  return {
+      reduxState
+  }
+}
 
-export default Home;
-//this gives us secret props!
-// export default connect(putReduxStateOnProps)(Home);
+export default connect(putReduxStateOnProps)(Home);
+
+// export default Home;

@@ -5,29 +5,29 @@ import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
 
-import { createStore, combineReducers, applyMiddleware } from 'react';
-// import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 
-// const feelingType = (state = '', action) => {
-//     if (action.type === 'ADD_FEELING') {
-//         return action.payload
-//     }
-//     console.log('This is your delivery type', state)
-//     return state;
-// }
+const feelingType = (state = '', action) => {
+    if (action.type === 'ADD_FEELING') {
+        return action.payload
+    }
+    console.log('This is your delivery type', state)
+    return state;
+}
 
 
-// const storeInstance = createStore(
-//     combineReducers({
-//         feelingType,
+const storeInstance = createStore(
+    combineReducers({
+        feelingType,
        
-//     }),
-//     applyMiddleware(logger),
-// )
+    }),
+    applyMiddleware(logger),
+)
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
-// ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
+// ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
