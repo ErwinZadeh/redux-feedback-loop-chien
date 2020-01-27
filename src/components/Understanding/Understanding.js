@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
 class Understanding extends Component {
 
@@ -6,7 +7,7 @@ class Understanding extends Component {
     feedback: {
         feeling: 0,
         understanding: 0,
-        supported: 0,
+        support: 0,
         comments: ''
     },
   };
@@ -24,7 +25,7 @@ class Understanding extends Component {
   handleClick = () => {
     // alert("You are headed to supported");
     ///CHANGE LOCATION???
-    this.props.history.push('/Supported')
+    this.props.history.push('/Support')
   }
 
   render() {

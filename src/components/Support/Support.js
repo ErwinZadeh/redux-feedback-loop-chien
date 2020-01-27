@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-class Supported extends Component {
+class Support extends Component {
 
   state = {
     feedback: {
         feeling: 0,
         understanding: 0,
-        supported: 0,
+        support: 0,
         comments: ''
     },
   };
@@ -15,8 +16,8 @@ class Supported extends Component {
     console.log(event.target.value);
     this.setState({
         feedback: {
-            ...this.state.supported,
-            supported: event.target.value
+            ...this.state.support,
+            support: event.target.value
         },
     });
   }
@@ -38,4 +39,4 @@ class Supported extends Component {
   }
 }
 
-export default Supported;
+export default Support;

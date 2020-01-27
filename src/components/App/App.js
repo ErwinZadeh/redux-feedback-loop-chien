@@ -3,13 +3,13 @@ import axios from 'axios';
 import './App.css';
 import Home from '../Home/Home.js'
 import Understanding from '../Understanding/Understanding.js'
-import Supported from '../Supported/Supported.js'
+import Support from '../Support/Support.js'
 import Comments from '../Comments/Comments.js'
 import FeedbackReview from '../FeedbackReview/FeedbackReview.js'
 import FeedbackSubmit from '../FeedbackSubmit/FeedbackSubmit.js'
 
 import { HashRouter as Router, Route } from "react-router-dom";
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
@@ -22,7 +22,7 @@ class App extends Component {
         <div className="App">
           <Route path="/" component={Home} exact />
           <Route path="/Understanding" component={Understanding} />
-          <Route path="/Supported" component={Supported} />
+          <Route path="/Support" component={Support} />
           <Route path="/Comments" component={Comments} />
           <Route path="/FeedbackReview" component={FeedbackReview} />
           <Route path="/FeedbackSubmit" component={FeedbackSubmit} />
@@ -33,3 +33,4 @@ class App extends Component {
 }
 
 export default App;
+// export default connect()(App);

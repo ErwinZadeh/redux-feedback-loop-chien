@@ -10,16 +10,24 @@ import { createStore, combineReducers, applyMiddleware } from 'react';
 import logger from 'redux-logger';
 
 
+// const feelingType = (state = '', action) => {
+//     if (action.type === 'ADD_FEELING') {
+//         return action.payload
+//     }
+//     console.log('This is your delivery type', state)
+//     return state;
+// }
 
 
-// let store = createStore(
-//   combineReducers({
-
-//   }),
-//   applyMiddleware(logger)
-// );
+// const storeInstance = createStore(
+//     combineReducers({
+//         feelingType,
+       
+//     }),
+//     applyMiddleware(logger),
+// )
 
 
 ReactDOM.render(<App />, document.getElementById('root'));
-// ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+// ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
