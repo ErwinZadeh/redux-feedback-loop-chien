@@ -4,28 +4,22 @@ import { connect } from 'react-redux';
 class Support extends Component {
 
   state = {
-    feedback: {
-        feeling: 0,
-        understanding: 0,
-        support: 0,
-        comments: ''
-    },
+    support: 0,
   };
   
-  handleSupportedChange = (event) => {
+  handleSupportChange = (event) => {
     console.log(event.target.value);
     this.setState({
-        feedback: {
-            ...this.state.support,
-            support: event.target.value
-        },
-    });
-  }
+      support: event.target.value
+    },
+  );
+}
   
   handleClick = () => {
     // alert('you are headed to leave comments');
     ///CHANGE LOCATION???
     this.props.history.push('/Comments')
+    this.props.dispatch({ type: 'ADD_SUPPORT', payload: this.state.support })
   }
 
   render() {

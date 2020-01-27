@@ -4,28 +4,42 @@ import { connect } from 'react-redux';
 class Understanding extends Component {
 
   state = {
-    feedback: {
-        feeling: 0,
-        understanding: 0,
-        support: 0,
-        comments: ''
-    },
+    understanding: 0,
   };
 
-  handleUnderstandingChange = (event) => {
+  // state = {
+  //   feedback: {
+  //       feeling: 0,
+  //       understanding: 0,
+  //       support: 0,
+  //       comments: ''
+  //   },
+  // };
+
+  handleUnderstandingingChange = (event) => {
     console.log(event.target.value);
     this.setState({
-        feedback: {
-            ...this.state.understanding,
-            understanding: event.target.value
-        },
-    });
-  }
+      understanding: event.target.value
+    },
+  );
+}
+  
+  // handleUnderstandingChange = (event) => {
+  //   console.log(event.target.value);
+  //   this.setState({
+  //       feedback: {
+  //           ...this.state.understanding,
+  //           understanding: event.target.value
+  //       },
+  //   });
+  // }
   
   handleClick = () => {
+    console.log(this.state)
     // alert("You are headed to supported");
     ///CHANGE LOCATION???
     this.props.history.push('/Support')
+    this.props.dispatch({ type: 'ADD_UNDERSTANDING', payload: this.state.understanding })
   }
 
   render() {
