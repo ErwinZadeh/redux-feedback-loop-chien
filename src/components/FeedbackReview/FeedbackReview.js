@@ -1,23 +1,39 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios'
 
 class FeedbackReview extends Component {
 
-  
 
-  handleClick = () => {
-    // alert('you are submitting this form');
-    //Change Location"
-    this.props.history.push('/FeedbackSubmit')
+
+  handleSubmit = () => {
+    // Send to our server -- wheres our data???
+    axios.post('/feedback', this.props.feedback)
+      .then(response => {
+        alert('All done!');
+        this.props.history.push('/');
+      })
+    // then confirm, move us back to the beginning...something
   }
 
-  render() {
+render() {
     return (
       <div>
-        <h1>Review Your Feedback</h1>
-        <button onClick={this.handleClick}>SUBMIT</button>
+        <h2>Feedback Review</h2>
+        {/* //SEE WHAT WE'VE TYPED BEFORE ON OTHER PAGES */}
+        {JSON.stringify(this.props.feedback)}
+        <button onClick={this.handleSubmit}>Next</button>
       </div>
     )
   }
 }
 
-export default FeedbackReview;
+
+const mapStateToProps = (reduxState) => {
+  // put this on this.props please
+  return {
+    feedback: reduxState.feedback
+  }
+}
+
+export default connect(mapStateToProps)(FeedbackReview);

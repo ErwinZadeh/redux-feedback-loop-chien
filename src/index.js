@@ -9,6 +9,12 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+let initialState = {
+    feeling: '',
+    understanding: '',
+    support: '',
+    comments: ''
+  }
 
 const feelingType = (state = '', action) => {
     if (action.type === 'ADD_FEELING') {

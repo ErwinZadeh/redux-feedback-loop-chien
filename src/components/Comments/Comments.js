@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class Comments extends Component {
 
   state = {
-    comments: 0,
+    comments: '',
   };
 
   handleCommentsChange = (event) => {
