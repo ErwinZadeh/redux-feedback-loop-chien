@@ -40,7 +40,5 @@ const putReduxStateOnProps = (reduxState) => {
   }
 }
 
-export default connect(putReduxStateOnProps)(Support);
-
-
+export default Support;
 // export default Support;

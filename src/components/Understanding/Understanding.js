@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+
 class Understanding extends Component {
 
   state = {
@@ -34,13 +35,4 @@ class Understanding extends Component {
   }
 }
 
-const putReduxStateOnProps = (reduxState) => {
-  return {
-    reduxState
-  }
-}
-
-export default connect(putReduxStateOnProps)(Understanding);
-
-
-// export default Understanding;
+export default Understanding;

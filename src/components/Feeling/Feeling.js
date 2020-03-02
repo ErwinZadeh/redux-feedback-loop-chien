@@ -34,12 +34,4 @@ class Feeling extends Component {
   }
 }
 
-const putReduxStateOnProps = (reduxState) => {
-  return {
-    reduxState
-  }
-}
-
-export default connect(putReduxStateOnProps)(Feeling);
-
-// export default Home;
+export default connect()(Feeling);

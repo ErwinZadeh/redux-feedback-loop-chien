@@ -54,7 +54,5 @@ const putReduxStateOnProps = (reduxState) => {
   }
 }
 
-export default connect(putReduxStateOnProps)(Comments);
-
-
+export default Comments;
 // export default Comments;
