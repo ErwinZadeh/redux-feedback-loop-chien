@@ -15,7 +15,7 @@ class Feeling extends Component {
     } else {
       //go to understanding
       // send info to redux
-      // this.state.feeling == '4'
+      // this.state.feeling == for example: '4'
       this.props.dispatch(
         {
           type: 'SET_FEELING',

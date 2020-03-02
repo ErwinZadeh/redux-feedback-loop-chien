@@ -15,10 +15,10 @@ class Support extends Component {
     } else {
       //go to support
       // send info to redux
-      // this.state.support == '4'
+      // this.state.support == for example: '4'
       this.props.dispatch(
         {
-          type: 'SUPPORT',
+          type: 'SET_SUPPORT',
           payload: this.state.support
         }
       )

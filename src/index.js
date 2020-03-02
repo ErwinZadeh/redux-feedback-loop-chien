@@ -10,19 +10,18 @@ import logger from 'redux-logger'
 
 
 let initialState = {
-  feeling: '3',
-  understanding: '4',
-  support: '5',
-  comments: 'woot redux'
+  feeling: '',
+  understanding: '',
+  support: '',
+  comments: ''
 }
 
 let feedback = (state = initialState, action) => {
-  // action.payload  => '4'
+  // action.payload  => for example: '4'
   // console.log('feedback reducer triggered')
   //check action for proper type
   switch (action.type) {
     case 'SET_FEELING':
-      // do things....
       return { ...state, feeling: action.payload }
     case 'SET_UNDERSTANDING':
       return { ...state, understanding: action.payload }

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios'
+import axios from 'axios';
 
 class Review extends Component {
 
 
 
   handleSubmit = () => {
-    // Send to our server -- wheres our data???
+    // Send to our server -- 
+    // Our needed to send data is in reduxState as (this.props.feedback) 
     axios.post('/feedback', this.props.feedback)
       .then(response => {
         alert('All done!');

@@ -14,7 +14,7 @@ class Understanding extends Component {
     } else {
       //go to support
       // send info to redux
-      // this.state.understanding == '4'
+      // this.state.understanding == for example: '4'
       this.props.dispatch(
         {
           type: 'SET_UNDERSTANDING',

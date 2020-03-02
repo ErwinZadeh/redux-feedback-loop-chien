@@ -15,10 +15,10 @@ class Comments extends Component {
     } else {
       //go to support
       // send info to redux
-      // this.state.comments == '4'
+      // this.state.comments == for example: 'This is it!'
       this.props.dispatch(
         {
-          type: 'COMMENTS',
+          type: 'SET_COMMENTS',
           payload: this.state.comments
         }
       )
