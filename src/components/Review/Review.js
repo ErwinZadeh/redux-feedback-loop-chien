@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios'
 
-class FeedbackReview extends Component {
+class Review extends Component {
 
 
 
@@ -36,4 +36,4 @@ const mapStateToProps = (reduxState) => {
   }
 }
 
-export default connect(mapStateToProps)(FeedbackReview);
+export default connect(mapStateToProps)(Review);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Home extends Component {
+class Feeling extends Component {
 
   state = {
     feeling: 0,
@@ -40,6 +40,6 @@ const putReduxStateOnProps = (reduxState) => {
   }
 }
 
-export default connect(putReduxStateOnProps)(Home);
+export default connect(putReduxStateOnProps)(Feeling);
 
 // export default Home;

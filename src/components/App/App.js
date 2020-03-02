@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-import Home from '../Home/Home.js'
-import Understanding from '../Understanding/Understanding.js'
-import Support from '../Support/Support.js'
-import Comments from '../Comments/Comments.js'
-import FeedbackReview from '../FeedbackReview/FeedbackReview.js'
-import FeedbackSubmit from '../FeedbackSubmit/FeedbackSubmit.js'
-
-import { HashRouter as Router, Route } from "react-router-dom";
-import { connect } from 'react-redux';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import Feeling from '../Feeling/Feeling'
+import Understanding from '../Understanding/Understanding'
+import Support from '../Support/Support'
+import Comments from '../Comments/Comments'
+import Review from '../Review/Review'
 
 class App extends Component {
   render() {
@@ -19,29 +16,18 @@ class App extends Component {
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
         </header>
-        <div className="App">
-          <Route path="/" component={Home} exact />
+        <br />
+        <main className="App">
+          <Route path="/" component={Feeling} exact />
           <Route path="/Understanding" component={Understanding} />
           <Route path="/Support" component={Support} />
           <Route path="/Comments" component={Comments} />
-          <Route path="/FeedbackReview" component={FeedbackReview} />
-          <Route path="/FeedbackSubmit" component={FeedbackSubmit} />
-        </div>
+          <Route path="/Review" component={Review} />
+        </main>
       </Router>
     );
   }
 }
 
-const putReduxStateOnProps = (reduxState) => {
-  //this will make this.props.reduxState a thing
-  return {
-    reduxState
-  }
-}
-
-//this gives us secret props!
-export default connect(putReduxStateOnProps)(App);
-
-
-// export default App;
+export default App;
 
