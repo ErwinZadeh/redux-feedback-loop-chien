@@ -11,9 +11,14 @@ class Review extends Component {
     axios.post('/feedback', this.props.feedback)
       .then(response => {
         alert('All done!');
-        this.props.history.push('/thankyou');
+        
       })
-    // then confirm, move us back to the beginning...something
+      .catch( error => {
+        alert(`Couldn't submit responses at this time`);
+        console.log('Error posting to feedback', error);
+      })
+
+    this.props.history.push('/thankyou');
   }
 
 render() {
@@ -22,8 +27,28 @@ render() {
         <h2>Feedback Review</h2>
         {/* //SEE WHAT WE'VE TYPED BEFORE ON OTHER PAGES */}
 
-        {JSON.stringify(this.props.feedback)}<br/>
+        {/* {JSON.stringify(this.props.feedback)}<br/> */}
         
+        <table>
+            <thead>
+              <tr>
+                <th>Feeling Score</th>
+                <th>Comprehension</th>
+                <th>Support by Staffs</th>
+                <th>Comments</th>
+              </tr>
+            </thead>
+            <tbody className="feedback">
+                <tr key={Date.now()}>
+                    <td>{this.props.feedback.feeling}</td>
+                    <td>{this.props.feedback.understanding}</td>
+                    <td>{this.props.feedback.support}</td>
+                    <td>{this.props.feedback.comments}</td>
+                  </tr>
+            </tbody> 
+        </table>
+
+
         <button onClick={this.handleSubmit}>Next</button>
       </div>
     )
@@ -31,11 +56,8 @@ render() {
 }
 
 
-const mapStateToProps = (reduxState) => {
-  // put this on this.props please
-  return {
-    feedback: reduxState.feedback
-  }
-}
+const putReduxStateOnProps = (reduxState) => ({
+  feedback: reduxState.feedback 
+});
 
-export default connect(mapStateToProps)(Review);
+export default connect(putReduxStateOnProps)(Review);
