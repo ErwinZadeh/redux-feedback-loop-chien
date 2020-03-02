@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Understanding extends Component {
 
@@ -12,9 +12,9 @@ class Understanding extends Component {
       //DONT GO ON
       alert('please fill out all fields')
     } else {
-      //go to understanding
+      //go to support
       // send info to redux
-      // this.state.feeling == '4'
+      // this.state.understanding == '4'
       this.props.dispatch(
         {
           type: 'SET_UNDERSTANDING',
@@ -45,4 +45,4 @@ class Understanding extends Component {
   }
 }
 
-export default withRouter(Understanding);
+export default connect()(Understanding);

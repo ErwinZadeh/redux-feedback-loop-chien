@@ -19,9 +19,7 @@ class App extends Component {
           <br />
           <main>
             <Route exact path='/' component={Feeling} />
-            <Route path='/understanding'>
-              <Understanding />
-            </Route>
+            <Route path='/understanding' component={Understanding} />
             <Route path='/support' component={Support} />
             <Route path='/comments' component={Comments} />
             <Route path='/review' component={Review} />
