@@ -1,38 +1,48 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
+import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
 
 class Understanding extends Component {
 
   state = {
-    understanding: 0,
-  };
+    understanding: ''
+  }
+  
+  handleNextClick = () => {
+    if (this.state.understanding == '') {
+      //DONT GO ON
+      alert('please fill out all fields')
+    } else {
+      //go to understanding
+      // send info to redux
+      // this.state.feeling == '4'
+      this.props.dispatch(
+        {
+          type: 'SET_UNDERSTANDING',
+          payload: this.state.understanding
+        }
+      )
+    //go to understanding
+    this.props.history.push('/support');
+  }
+}
 
-  handleUnderstandingChange = (event) => {
-    // console.log(event.target.value);
+  handleChange = (event) => {
+    //save locally, temp. 
     this.setState({
       understanding: event.target.value
-    },
-    );
-  }
-
-  handleUnderstandingClick = () => {
-    console.log(this.state)
-    // alert("You are headed to supported");
-    ///CHANGE LOCATION???
-    this.props.history.push('/Support')
-    this.props.dispatch({ type: 'ADD_UNDERSTANDING', payload: this.state.understanding })
+    })
   }
 
   render() {
     return (
       <div>
-        <h1>How well are you understanding the content?</h1>
-        <input onChange={this.handleUnderstandingChange} type="number" placeholder="Choose between 1 to 5" />
-        <button onClick={this.handleUnderstandingClick}>NEXT</button>
+        <h2>How well are you understanding the content?</h2>
+        <label>Understanding?</label><br/>
+        <input onChange={this.handleChange} />
+        <button onClick={this.handleNextClick}>Next</button>
       </div>
     )
   }
 }
 
-export default Understanding;
+export default withRouter(Understanding);

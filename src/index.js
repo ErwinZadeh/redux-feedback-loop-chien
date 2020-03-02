@@ -4,62 +4,49 @@ import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
-
-import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import logger from 'redux-logger';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import logger from 'redux-logger'
+
 
 let initialState = {
-    feeling: '',
-    understanding: '',
-    support: '',
-    comments: ''
+  feeling: '3',
+  understanding: '4',
+  support: '5',
+  comments: 'woot redux'
+}
+
+let feedback = (state = initialState, action) => {
+  // action.payload  => '4'
+  // console.log('feedback reducer triggered')
+  //check action for proper type
+  switch (action.type) {
+    case 'SET_FEELING':
+      // do things....
+      return { ...state, feeling: action.payload }
+    case 'SET_UNDERSTANDING':
+      return { ...state, understanding: action.payload }
+    case 'SET_SUPPORT':
+      return { ...state, support: action.payload }
+    case 'SET_COMMENTS':
+      return { ...state, comments: action.payload }
+    case 'RESET':
+      return initialState
+    default: 
+      return state
   }
-
-const feelingType = (state = '', action) => {
-    if (action.type === 'ADD_FEELING') {
-        return action.payload
-    }
-    console.log('This is your delivery type', state)
-    return state;
 }
 
-const understandingType = (state = '', action) => {
-    if (action.type === 'ADD_UNDERSTANDING') {
-        return action.payload
-    }
-    console.log('This is your delivery type', state)
-    return state;
-}
-
-const supportType = (state = '', action) => {
-    if (action.type === 'ADD_SUPPORT') {
-        return action.payload
-    }
-    console.log('This is your delivery type', state)
-    return state;
-}
-
-const commentsType = (state = '', action) => {
-    if (action.type === 'ADD_COMMENTS') {
-        return action.payload
-    }
-    console.log('This is your delivery type', state)
-    return state;
-}
-
-
-const storeInstance = createStore(
-    combineReducers({
-        feelingType,
-        understandingType,
-        supportType,
-        commentsType,
-    }),
-    applyMiddleware(logger),
+let store = createStore(
+  //reducers
+  combineReducers({
+    feedback
+  }),
+  //logger/middlewares
+  applyMiddleware(
+    logger
+  )
 )
 
-
-// ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();

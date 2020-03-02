@@ -4,31 +4,45 @@ import { connect } from 'react-redux';
 class Feeling extends Component {
 
   state = {
-    feeling: 0,
-  };
-
-  handleFeelingChange = (event) => {
-    // console.log(event.target.value);
-    this.setState({
-      feeling: event.target.value
-    },
-    );
+    feeling: ''
   }
 
-  handleFeelingClick = () => {
-    console.log(this.state)
-    // alert("You are headed to understanding");
-    //CHANGE LOCATION???
-    this.props.history.push('/Understanding')
-    this.props.dispatch({ type: 'ADD_FEELING', payload: this.state.feeling })
+  handleNextClick = () => {
+
+    if (this.state.feeling == '') {
+      //DONT GO ON
+      alert('please fill out all fields')
+    } else {
+      //go to understanding
+      // send info to redux
+      // this.state.feeling == '4'
+      this.props.dispatch(
+        {
+          type: 'SET_FEELING',
+          payload: this.state.feeling
+        }
+      )
+
+      this.props.history.push('/understanding');
+    }
+
+  }
+
+  handleChange = (event) => {
+    //save locally, temp. 
+    this.setState({
+      feeling: event.target.value
+    })
   }
 
   render() {
+    console.log(this.state)
     return (
       <div>
-        <h1>How are you feeling today?</h1>
-        <input onChange={this.handleFeelingChange} type="number" placeholder="Choose between 1 to 5" />
-        <button onClick={this.handleFeelingClick}>NEXT</button>
+        <h2>How are you feeling today?</h2>
+        <label>Feeling?</label><br/>
+        <input onChange={this.handleChange} />
+        <button onClick={this.handleNextClick}>Next</button>
       </div>
     )
   }
