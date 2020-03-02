@@ -8,7 +8,7 @@ class Review extends Component {
   handleSubmit = () => {
     // Send to our server -- 
     // Our needed to send data is in reduxState as (this.props.feedback) 
-    axios.post('/feedback', this.props.feedback)
+    axios.post('/review', this.props.feedback)
       .then(response => {
         alert('All done!');
         
